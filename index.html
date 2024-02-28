@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <img id="logo" src="assets/Logo.png" alt="Logo">
+    </header>
+
+    <main>
+        <div class="container">
+            <form action="#" class="form">
+              <div class="title">
+                <img src="assets/GithubIcon.png" alt="Github Icon">
+                <h1> Github Card Generator </h1>
+              </div>
+                
+                <div class="row">
+                  <label for="username-input">Username</label>
+                  <div class="input">    
+                      <img class="icon" src="assets/Username Icon.png" alt="Username Icon"> 
+                      <input type="text" id="username-input" name="username" placeholder="Input your GitHub username here..." required>
+                  </div>  
+                </div>
+                
+                <div class="row">
+                  <label for="banner-input">Banner</label>
+                  <div class="input">
+                      <img class="icon" src="assets/Banner Icon.png" alt="Banner Icon"> 
+                      <input type="url" id="banner-input" name="banner" placeholder="Input your banner URL here...">
+                  </div>
+                </div>
+
+                <div class="row" id="submit-row">
+                  <button class="submit" type="submit">
+                      <img src="assets/Generate Icon.png" alt="Generate Icon"> Generate
+                  </button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
