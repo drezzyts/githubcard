@@ -9,15 +9,12 @@ body {
   height: 100%;
 }
 
-
 form .title {
   display: flex;
   flex-direction: row;
 }
 
-
 @media (min-width: 550px) {
-
   header {
     display: flex;
     justify-content: center;
@@ -92,6 +89,8 @@ form .title {
   }
   
   .input input {
+    width: 500px;
+    height: 40px;
     outline: none;
     border: none;
     background-color: transparent;
@@ -112,6 +111,14 @@ form .title {
     align-items: center;
     flex-direction: row;
     gap: 10px;
+    cursor: pointer;
+  }
+
+  .submit:hover {
+    width: 140px;
+    transition: 1s;
+    background-image: none;
+    background-color: #9A02DB;
   }
   
   #submit-row {
@@ -201,6 +208,8 @@ form .title {
   }
   
   .input input {
+    width: 332px;
+    height: 40px;
     outline: none;
     border: none;
     background-color: transparent;

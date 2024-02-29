@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/http/index.js",
+  "scripts": {
+    "dev": "tsx server/src/http/server.ts",
+    "dev:watch": "tsx watch server/src/http/server.ts",
+    "build": "tsc",
+    "start": "node dist/http/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@fastify/static": "^7.0.1",
+    "@napi-rs/canvas": "^0.1.50",
+    "fastify": "^4.26.1",
+    "util-stunks": "^1.2.8"
+  }
+}
