@@ -42,6 +42,9 @@ app.get('/card', async (request, response) => {
   return response.status(200).type('image/png').send(card);
 })
 
-app.listen({ port: 3333 }, () => {
+app.listen({ 
+  port: Number(process.env.PORT),
+  host: '0.0.0.0' 
+}, () => {
   console.log('HTTP server is running!');
 });
