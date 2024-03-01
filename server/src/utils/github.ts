@@ -1,5 +1,5 @@
 export interface GithubUser {
-  name: string,
+  login: string,
   avatar_url: string,
   repos_url: string,
   public_repos: number,
@@ -16,9 +16,12 @@ export type GithubUserRepositories = GithubRepository[];
 
 export async function getGithubUser(username: string) {
   const response = await fetch(`https://api.github.com/users/${username}`);
-  
   const data = await response.json();
-  if (!data.name) return;
+
+  if (!data.login) {
+    console.error('Error during fetching the user data: '+ username)
+    return;
+  }
 
   return data as GithubUser;
 }
@@ -27,15 +30,20 @@ export async function getGithubUserRepositories(username: string) {
   const response = await fetch(`https://api.github.com/users/${username}/repos`);
   const data = await response.json();
   
-  if (!Array.isArray(data)) return;
+  if (!Array.isArray(data)) {
+    console.error('Error during fetching the user repositories ' + username)
+    return;
+  }
 
   return data as GithubUserRepositories;
 }
 
 export async function getGithubUserTotalStars(username: string) {
   const data = await getGithubUserRepositories(username);
-  if (!data) return;
-
+  if (!data) {
+    console.error('Error during fetching the user repositories' + username)
+    return;
+  }
   const stars = data.reduce((acc, curr) => acc + curr.stargazers_count, 0);
   return stars;
 }

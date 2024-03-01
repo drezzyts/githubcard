@@ -1,12 +1,12 @@
 import { GithubUser } from './github';
 import * as Canvas from '@napi-rs/canvas';
+import path from 'path';
 import { abbreviate } from 'util-stunks';
 
 export default async function generateCard(user: GithubUser, bannerURL: string, stars: number) {
     
-  Canvas.GlobalFonts.registerFromPath('src/assets/Inter-ExtraBold.ttf', 'Inter ExtraBold');
-  Canvas.GlobalFonts.registerFromPath('src/assets/Inter-Regular.ttf', 'Inter Regular');
-
+  Canvas.GlobalFonts.registerFromPath(path.resolve('src/assets/Inter-ExtraBold.ttf', 'Inter ExtraBold'));
+  Canvas.GlobalFonts.registerFromPath(path.resolve('src/assets/Inter-Regular.ttf', 'Inter Regular'));
 
   const canvas = Canvas.createCanvas(400, 140);
   const ctx = canvas.getContext('2d');
@@ -20,7 +20,7 @@ export default async function generateCard(user: GithubUser, bannerURL: string, 
 
   ctx.font = '10px Inter ExtraBold';
   ctx.fillStyle = '#FFFFFF';
-  ctx.fillText(user.name, 125, 92.5);
+  ctx.fillText(user.login, 125, 92.5);
 
   ctx.font = '8px Inter Regular';
   ctx.fillText(abbreviate(stars), 150, 118.5);
