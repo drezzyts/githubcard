@@ -26,7 +26,7 @@ app.get('/card', async (request, response) => {
 
   if(!username || !banner) return response.status(422).send({
     error: true,
-    message: 'Missing required parameters: ' + username ? 'banner' : 'username'
+    message: 'Missing required parameters: ' + (username ? 'banner' : 'username')
   });
 
   const user = await getGithubUser(username);
